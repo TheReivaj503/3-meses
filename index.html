@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3 MESES🤍</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:linear-gradient(135deg,#ffb6c1,#ffd6e7,#fff0f5);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    overflow-x:hidden;
+}
+
+.corazon{
+    position:fixed;
+    color:rgba(255,255,255,.8);
+    font-size:20px;
+    animation:flotar linear infinite;
+    pointer-events:none;
+}
+
+@keyframes flotar{
+    from{
+        transform:translateY(100vh);
+        opacity:0;
+    }
+    20%{
+        opacity:1;
+    }
+    to{
+        transform:translateY(-100px);
+        opacity:0;
+    }
+}
+
+.card{
+    background:white;
+    width:100%;
+    max-width:800px;
+    padding:40px;
+    border-radius:25px;
+    box-shadow:0 15px 35px rgba(0,0,0,.15);
+    text-align:center;
+    position:relative;
+    z-index:10;
+}
+
+.foto{
+    width:220px;
+    height:220px;
+    border-radius:50%;
+    object-fit:cover;
+    border:6px solid #ff85a2;
+    margin-bottom:20px;
+}
+
+/* CAMBIA foto.jpg por una foto de ustedes */
+.placeholder{
+    width:220px;
+    height:220px;
+    border-radius:50%;
+    margin:0 auto 20px;
+    background:#ffe5ee;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:80px;
+}
+
+h1{
+    color:#ff4f87;
+    margin-bottom:15px;
+}
+
+.subtitulo{
+    color:#777;
+    margin-bottom:25px;
+}
+
+.contador{
+    background:#ffe5ee;
+    padding:18px;
+    border-radius:15px;
+    color:#ff4f87;
+    font-size:20px;
+    font-weight:bold;
+    margin-bottom:25px;
+}
+
+.btn{
+    background:#ff4f87;
+    color:white;
+    border:none;
+    padding:12px 24px;
+    border-radius:30px;
+    cursor:pointer;
+    font-size:16px;
+    transition:.3s;
+    margin-bottom:20px;
+}
+
+.btn:hover{
+    transform:scale(1.05);
+}
+
+.carta{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .8s ease;
+    text-align:left;
+}
+
+.carta.abierta{
+    max-height:1000px;
+}
+
+.carta p{
+    color:#555;
+    line-height:1.9;
+    margin-bottom:15px;
+}
+
+footer{
+    margin-top:25px;
+    color:#888;
+}
+
+audio{
+    width:100%;
+    margin-top:20px;
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+
+    <!-- Reemplaza esto por una foto -->
+    <div class="placeholder">❤️</div>
+
+    <!-- Ejemplo cuando tengas foto -->
+    <!-- <img src="foto.jpg" class="foto"> -->
+
+    <h1>FELICES 3 MESES, MI ADRI🤍</h1>
+
+    <p class="subtitulo">
+        Gracias por estos hermosos días a tu lado.
+    </p>
+
+    <div class="contador">
+        🤍  LLEVAMOS JUNTOS  🤍 
+        <br><br>
+        <span id="tiempo"></span>
+    </div>
+
+    <button class="btn" onclick="abrirCarta()">
+        💌 Abrir mi carta
+    </button>
+
+    <div class="carta" id="carta">
+        <p>
+            PARA EL AMOR DE MI VIDA: 
+        </p>
+
+        <p>
+	       	Qué decirte, mi amor. Este ha sido uno de los meses más complicados que hemos tenido, e irónicamente, 
+		uno de los más bonitos también: por haber podido disfrutar de nuestro primer mundial juntos, 
+		de mi primer cumpleaños a tu lado y de cada recuerdo, gesto o detalle en el que nos hemos demostrado nuestro amor.
+        </p>
+
+        <p>
+            	Gracias por acompañarme en mis días buenos, por quedarte también en los difíciles,
+           	por escucharme, por hacerme reír y por compartir conmigo tantos momentos que han
+            	terminado convirtiéndose en recuerdos muy especiales.
+        </p>
+
+        <p>
+            	No tengo ninguna duda de que te volvería a elegir una y otra vez, todos los días, por el resto de mi vida. 
+		Porque sos todo lo que está bien en mi vida y, vos, como tal, sos vida. Me encanta tenerte como novia y, 
+		aún más, saber que vas a ser mi esposa.
+        </p>
+
+        <p>
+            	No sé qué nos traerán los próximos meses o años, pero sí sé que quiero seguir
+            	disfrutando cada momento contigo, aprendiendo, creciendo y sumando experiencias
+            	a tu lado, porque me haces demasiado feliz y me encanta hacer feliz.
+        </p>
+
+        <p>
+            	Gracias por estos tres meses, por tu paciencia, tu amor y todo lo que te hace ser vos.
+        </p>
+
+        <p>
+            Te amo muchísimo, mi Adri. 🤍
+        </p>
+
+        <p>
+            Con todo mi amor y siempre tuyo,<br>
+            Javier 🤍
+        </p>
+    </div>
+
+    <!-- OPCIONAL: Cambia cancion.mp3 por su canción -->
+    <audio controls>
+        <source src="cancion.mp3" type="audio/mpeg">
+        Tu navegador no soporta audio.
+    </audio>
+
+    <footer>
+        Eres... 🤍
+    </footer>
+
+</div>
+
+<script>
+// Fecha de novios
+const fechaInicio = new Date("2026-04-22T00:00:00");
+
+function actualizarContador() {
+    const ahora = new Date();
+    const diferencia = ahora - fechaInicio;
+
+    const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+    const horas = Math.floor((diferencia / (1000 * 60 * 60)) % 24);
+    const minutos = Math.floor((diferencia / (1000 * 60)) % 60);
+    const segundos = Math.floor((diferencia / 1000) % 60);
+
+    document.getElementById("tiempo").innerHTML =
+        `${dias} días, ${horas} horas, ${minutos} minutos y ${segundos} segundos`;
+}
+
+setInterval(actualizarContador, 1000);
+actualizarContador();
+
+function abrirCarta(){
+    document.getElementById("carta").classList.toggle("abierta");
+}
+
+// Corazones flotando
+function crearCorazon(){
+    const corazon = document.createElement("div");
+    corazon.classList.add("corazon");
+    corazon.innerHTML = "❤️";
+
+    corazon.style.left = Math.random()*100 + "vw";
+    corazon.style.animationDuration = (Math.random()*4+5) + "s";
+
+    document.body.appendChild(corazon);
+
+    setTimeout(()=>{
+        corazon.remove();
+    },9000);
+}
+
+setInterval(crearCorazon,500);
+</script>
+
+</body>
+</html>
